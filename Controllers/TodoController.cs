@@ -14,10 +14,10 @@ namespace AspNetCoreTodo.Controllers
         {
             _todoItemService = todoItemService;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            //  Get to-do items from database
-
+            //  Get to-do items from database / or mock
+            var todoItems = await _todoItemService.GetIncompleteItemsAsync();
             //  Put items into a model
 
             //  Pass the view to a model and render
