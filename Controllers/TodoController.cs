@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNetCoreTodo.Models;
 using AspNetCoreTodo.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,9 +20,12 @@ namespace AspNetCoreTodo.Controllers
             //  Get to-do items from database / or mock
             var todoItems = await _todoItemService.GetIncompleteItemsAsync();
             //  Put items into a model
-
+            var model = new TodoViewModel() 
+            {
+                Items = todoItems
+            };
             //  Pass the view to a model and render
-            
+            return View(model);
         }
     }
 }
