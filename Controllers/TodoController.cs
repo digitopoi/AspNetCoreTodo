@@ -34,7 +34,7 @@ namespace AspNetCoreTodo.Controllers
                 return BadRequest(ModelState);
             }
 
-            var successful = await _todoItemService.AddItemAsync(newItem);
+            var successful = await _todoItemService.AddItem(newItem);
             if (!successful)
             {
                 return BadRequest(new { error = "Could not add item." });
