@@ -6,7 +6,7 @@
 
 function addItem() {
     $('#add-item-error').hide();
-    var newTitle = $('#add-item-title').valid();
+    var newTitle = $('#add-item-title').val();
 
     $.post('/Todo/AddItem', { title: newTitle }, function() {
         window.location = '/Todo';
